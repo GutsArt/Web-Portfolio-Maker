@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- <link rel="stylesheet" href="https://cdnjs.clare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">loudf -->
+        <link
+            href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="styles/style.css" />
+        <title>Portfolio Website</title>
+        <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+        <style>
+        .icon-editor { display: flex; align-items: center;  
+        justify-content: space-between;  
+        width: 100%; margin-bottom: 2.5rem; background-color: var(--second-bg-color); border-radius: 1rem; padding: 1.3rem; box-shadow: 0 0 10px var(--main-color0); transition: 0.5s ease;
+        }
+
+        .icon-editor i { font-size: 3rem; color: var(--main-color0);
+        }
+
+        .icon-editor input { flex-grow: 1;  
+        padding: 1rem; font-size: 1.6rem; border-radius: 0.5rem; border: 2px solid var(--main-color0); background-color: var(--second-bg-color); color: var(--second-bg-color); margin: 0 1rem;  
+        transition: 0.3s ease;
+        }
+        .icon-editor input:focus { border-color: var(--main-color0); outline: none;
+        }
+
+        .icon-editor button { background-color: var(--black); border: none; border-radius: 1rem; padding: 1rem 2rem;  
+        font-size: 1.6rem; cursor: pointer; transition: 0.4s ease; display: flex; justify-content: center; align-items: center; width: 4rem;  
+        height: 4rem;  
+
+        }
+
+        .icon-editor button:not(:last-child) { margin-right: 1rem;  
+        }
+
+        .icon-editor button:hover { background-color: var(--main-color0); color: var(--black);  
+        transform: scale(1.1) translateY(-1px); box-shadow: 0 0 15px var(--main-color0);
+        }
+
+        .icon-editor button:hover i { color: var(--black);  
+        }
+
+        .icon-editor #delete-icon { cursor: pointer;
+        }
+
+        .icon-editor.hidden { display: none;
+        }
+        
+
+        button#download { position: fixed;  
+        bottom: 2rem;  
+        right: 2rem;  
+        background-color: var(--main-color0);  
+        border-radius: 50%;  
+        border: none;  
+        padding: 1.5rem;  
+        color: var(--black);  
+        width: 50px;  
+        height: 50px;  
+        display: flex;  
+        justify-content: center;  
+        align-items: center;  
+        cursor: pointer;  
+        transition: 0.3s ease;  
+        z-index: 999;  
+
+        }
+        
+        button#download:hover { transform: scale(1.1);  
+        background-color: var(--black);  
+        color: var(--main-color0);  
+        box-shadow: 0 0 20px var(--main-color0);  
+
+        }
+
+        button#download:active { transform: scale(0.95);  
+        background-color: var(--main-color0);  
+        color: var(--black);  
+        box-shadow: 0 0 30px var(--main-color0);  
+        }
+        
+        button#download i { font-size: 2.4rem;  
+        color: var(--black);  
+        transition: color 0.3s ease;  
+        }
+
+        button#download:hover i { color: var(--main-color0);  
+        }
+        </style>
+    </head>
+    <body>
+        <header contenteditable="true" class="header">
+            <a href="#home" class="logo"> Artem<span> Guts</span></a>
+            <i class="bx bx-menu" id="menu-icon"></i>
+
+            <nav class="navbar">
+                <a href="#home" class="active">Home</a>
+
+                <a href="#education">Education</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </header>
+
+        <section class="home" id="home">
+            <div id="change-image-icon" class="home-img change-image" onclick="triggerFileInput('main')">
+                <img id="main-img" src="images/mainS.png" alt="Image"/>
+                <input type="file" id="image-upload-main" onchange="loadImage(event, 'main')" accept="image/*" style="display: none;" />
+            </div>
+
+            
+            <div class="home-content">
+                <h1 contenteditable="true">Hi, It's <span>Artem</span></h1>
+                <h3 contenteditable="true" class="typing-text">I'm a <span></span></h3>
+                <p contenteditable="true">
+                    My name is Guts Artem Aleksandrovich. I am a student and a
+                    goal-oriented person with a passion for exact sciences,
+                    philosophy and programming. From an early age, I have
+                    strived for knowledge, which has led me to achieve
+                    significant success both in my studies and in personal
+                    projects.
+                </p>
+
+                <div class="social-icons" id="top-social">
+                    <a href="#" class="social-icon" data-icon="youtube"><i class='bx bxl-youtube'></i></a>
+                    <a href="#" class="social-icon" data-icon="facebook"><i class='bx bxl-facebook'></i></a>
+                    <!-- <a href=""><i class='bx bxl-whatsapp'></i></a> -->
+                    <!-- <a href=""><i class='bx bxl-instagram' ></i></a> -->
+                    <!-- <a href=""><i class='bx bxl-tiktok'></i></a> -->
+                    <a href="#" class="social-icon" data-icon="twitter"><i class='bx bxl-twitter' ></i></a>
+                    <a href="#" class="social-icon" data-icon="telegram"><i class="bx bxl-telegram"></i></a>
+
+                    <a href="#" class="social-icon" data-icon="linkedin"><i class="bx bxl-linkedin"></i></a>
+                    <a href="#" class="social-icon" data-icon="github"><i class="bx bxl-github"></i></a>
+                    <a href="#" class="social-icon" data-icon="stackoverflow"><i class='bx bxl-stack-overflow'></i></a>
+                    <!-- <a href="#"><i class='bx bxl-reddit'></i></a> -->
+                </div>
+                <div id="icon-editor" class="icon-editor hidden">
+                    <i class='bx bx-link'></i>
+                    <input type="text" id="link-input" placeholder="Enter link" />
+                    <button id="save-link"><i class='bx bxs-save' ></i></button>
+                    <button id="delete-icon"><i class='bx bxs-trash'></i></button>
+                </div>
+                <a contenteditable="true" href="#" class="btn" id="editable-link">Hire me</a>
+            </div>
+        </section>
+
+        
+        <section contenteditable="true" class="education" id="education">
+            <h2 class="heading">Education</h2>
+
+            <div class="timeline-items">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2013</div>
+                    <div class="timeline-content">
+                        <h3>Lyceum 56</h3>
+                        <p>
+                            Graduated with honors, consistently ranking as a
+                            top-performing student in mathematics and science
+                            disciplines. This early success set the foundation
+                            for my academic excellence.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2022</div>
+                    <div class="timeline-content">
+                        <h3>International Humanitarian University - College</h3>
+                        <p>
+                            Recognized as the best student in the college since
+                            2022, achieving remarkable success in programming
+                            and philosophy. Developed multiple projects and
+                            represented the institution at various academic
+                            competitions.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2024</div>
+                    <div class="timeline-content">
+                        <h3>University</h3>
+                        <p>
+                            Future studies at a prestigious university in
+                            Germany. I aim to expand my knowledge in AI and
+                            programming, striving for interdisciplinary
+                            innovation and leadership in my field.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2024</div>
+                    <div class="timeline-content">
+                        <h3>NASA</h3>
+                        <p>
+                            Long-term aspiration to contribute to groundbreaking
+                            research and technologies at NASA, advancing human
+                            knowledge and exploration.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section contenteditable="true" class="services" id="portfolio">
+            <h2 class="heading">Portfolio</h2>
+
+            <div class="services-container">
+                <div class="service-box">
+                    <div class="service-info">
+                        <h4>Witcher 3</h4>
+                        <p>
+                            Developed mods to enhance gameplay mechanics and improve visuals, creating a more immersive experience.
+                        </p>
+                        <a href="#" class="btn">View Project</a>
+                    </div>
+                </div>
+            
+                <div class="service-box">
+                    <div class="service-info">
+                        <h4>Baldur's Gate 3</h4>
+                        <p>
+                            Created tools to streamline mod development and manage custom content for the game's community.
+                        </p>
+                        <a href="#" class="btn">View Project</a>
+                    </div>
+                </div>
+            
+                <div class="service-box">
+                    <div class="service-info">
+                        <h4>Dead Space</h4>
+                        <p>
+                            Enhanced in-game textures and lighting effects to elevate the horror atmosphere and visual fidelity.
+                        </p>
+                        <a href="#" class="btn">View Project</a>
+                    </div>
+                </div>
+            
+                <div class="service-box">
+                    <div class="service-info">
+                        <h4>CS:GO</h4>
+                        <p>
+                            Designed custom skins and optimized server configurations to improve gameplay for competitive and casual modes.
+                        </p>
+                        <a href="#" class="btn">View Project</a>
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+
+        <section contenteditable="true" class="skills" id="skills">
+            <div class="skills-box">
+                <h2 class="heading">Skills</h2>
+
+                <div class="wrapper">
+                    <div class="skill-item">
+                        <div onclick="triggerFileInput('witcher')">
+                            <a href="https://store.steampowered.com/app/292030/The_Witcher_3_Wild_Hunt/">
+                                <img id="witcher-img" src="images/Witcher 3.jpg" alt="Witcher 3" />
+                            </a>
+                            <input type="file" id="image-upload-witcher" onchange="loadImage(event, 'witcher')" accept="image/*" style="display: none;" />
+                        </div>
+                        
+                        
+                        <h2>
+                            <a
+                                href="https://store.steampowered.com/app/292030/The_Witcher_3_Wild_Hunt/"
+                                >Witcher 3</a
+                            >
+                        </h2>
+                        <div class="rating">
+                            <i class="bx bxs-star" id="star"></i>
+                            <i class="bx bxs-star" id="star"></i>
+                            <i class="bx bxs-star" id="star"></i>
+                            <i class="bx bxs-star" id="star"></i>
+                            <i class="bx bxs-star" id="star"></i>
+                        </div>
+                        <p>
+                            You are Geralt of Rivia, mercenary monster slayer.
+                            Before you stands a war-torn, monster-infested
+                            continent you can explore at will. Your current
+                            contract? Tracking down Ciri — the Child of
+                            Prophecy, a living weapon that can alter the shape
+                            of the world.
+                        </p>
+                    </div>
+
+                    <div class="skill-item">
+                        <div onclick="triggerFileInput('silent-hill')">
+                            <a href="https://store.steampowered.com/app/2124490/SILENT_HILL_2/">
+                                <img id="silent-hill-img" src="images/Silent Hill 2.jpg" alt="Silent Hill 2" />
+                            </a>
+                            <input type="file" id="image-upload-silent-hill" onchange="loadImage(event, 'silent-hill')" accept="image/*" style="display: none;" />
+                        </div>
+                        <h2>
+                            <a
+                                href="https://store.steampowered.com/app/2124490/SILENT_HILL_2/"
+                                >Silent Hill 2</a
+                            >
+                        </h2>
+                        <div class="rating">
+                            <i class="bx bxs-star" id="star"></i>
+                            <i class="bx bxs-star" id="star"></i>
+                            <i class="bx bxs-star" id="star"></i>
+                            <i class="bx bxs-star" id="star"></i>
+                            <i class="bx bxs-star" id="star"></i>
+                        </div>
+                        <p>
+                            Investigating a letter from his late wife, James
+                            returns to where they made so many memories - Silent
+                            Hill. What he finds is a ghost town, prowled by
+                            disturbing monsters and cloaked in deep fog.
+                            Confront the monsters, solve puzzles, and search for
+                            traces of your wife in SILENT HILL 2.
+                        </p>
+                    </div>
+
+                    <div class="skill-item">
+                        <div onclick="triggerFileInput('dead-space')">
+                            <a href="https://store.steampowered.com/app/1693980/Dead_Space/">
+                                <img id="dead-space-img" src="images/Dead Space.jpg" alt="Dead Space" />
+                            </a>
+                            <input type="file" id="image-upload-dead-space" onchange="loadImage(event, 'dead-space')" accept="image/*" style="display: none;" />
+                        </div>
+                        
+                        <h2>
+                            <a
+                                href="https://store.steampowered.com/app/1693980/Dead_Space/"
+                                >Dead Space</a
+                            >
+                        </h2>
+                        <div class="rating">
+                            <i class="bx bxs-star" id="star"></i>
+                            <i class="bx bxs-star" id="star"></i>
+                            <i class="bx bxs-star" id="star"></i>
+                            <i class="bx bxs-star" id="star"></i>
+                            <i class="bx bxs-star" id="star"></i>
+                        </div>
+                        <p>
+                            The sci-fi survival-horror classic returns,
+                            completely rebuilt to offer an even more immersive
+                            experience — including visual, audio, and gameplay
+                            improvements — while staying faithful to the
+                            original game’s thrilling vision.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="wrapper"></div>
+
+                <div class="wrapper"></div>
+            </div>
+        </section>
+
+        <section contenteditable="true" class="contact" id="contact">
+            <h2 class="heading">Contact <span>Me</span></h2>
+
+            <form action="">
+                <div class="input-group">
+                    <div class="input-box">
+                        <input type="text" placeholder="Full Name" />
+                        <input type="email" placeholder="Email" />
+                    </div>
+
+                    <div class="input-box">
+                        <input type="number" placeholder="Phone Number" />
+                        <input type="text" placeholder="Subjeect" />
+                    </div>
+                </div>
+
+                <div class="input-group-2">
+                    <textarea
+                        cols="30"
+                        rows="10"
+                        placeholder="Your Message"
+                    ></textarea>
+                    <input type="submit" value="Send Message" class="btn" />
+                </div>
+            </form>
+        </section>
+
+        <footer contenteditable="true" class="footer">
+            <div class="social" id="bottom-social">
+                <a href="#" class="social-icon" data-icon="youtube"><i class='bx bxl-youtube'></i></a>
+                <a href="#" class="social-icon" data-icon="facebook"><i class='bx bxl-facebook'></i></a>
+                <!-- <a href=""><i class='bx bxl-whatsapp'></i></a> -->
+                <!-- <a href=""><i class='bx bxl-instagram' ></i></a> -->
+                <!-- <a href=""><i class='bx bxl-tiktok'></i></a> -->
+                <a href="#" class="social-icon" data-icon="twitter"><i class='bx bxl-twitter' ></i></a>
+                <a href="#" class="social-icon" data-icon="telegram"><i class="bx bxl-telegram"></i></a>
+
+                <a href="#" class="social-icon" data-icon="linkedin"><i class="bx bxl-linkedin"></i></a>
+                <a href="#" class="social-icon" data-icon="github"><i class="bx bxl-github"></i></a>
+                <a href="#" class="social-icon" data-icon="stackoverflow"><i class='bx bxl-stack-overflow'></i></a>
+                <!-- <a href="#"><i class='bx bxl-reddit'></i></a> -->            </div>
+
+            <ul class="list">
+                <li>
+                    <a href="#home">About Me</a>
+                </li>
+                <li>
+                    <a href="#education">Education</a>
+                </li>
+                <li>
+                    <a href="#portfolio">Portfolio</a>
+                </li>
+                <li>
+                    <a href="#skills">Skills</a>
+                </li>
+                <li>
+                    <a href="#contact">Contact</a>
+                </li>
+                <p class="copyright">© Artem Guts | All Rights Reserved</p>
+            </ul>
+        </footer>
+
+        <button onclick="download()" id="download"><i class='bx bx-download'></i></button>
+        
+        <script src="js/download.js"></script>
+        <script src="js/add_photo.js"></script>
+        <script src="js/add_link.js"></script>
+
+        <script src="js/сhanging_сolors.js"></script>
+        <script src="js/script_navbar.js"></script>
+        <script src="js/script_stars.js"></script>
+    </body>
+</html>
